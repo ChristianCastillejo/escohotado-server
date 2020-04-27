@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: chris
+  password: blablabla #<-- which you have defiend while installing postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: escohotado-server_development
+
+test:
+  <<: *default
+  database: escohotado-server_test
+
+production:
+  <<: *default
+  database: escohotado-server_production
